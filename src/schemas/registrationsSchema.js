@@ -2,8 +2,14 @@ import z from 'zod';
 
 const registrationsSchema = z.object({
     firstName: z.string().nonempty('First name is required'),
+
     lastName: z.string().nonempty('Last name is required'),
+
+    username: z.string().nonempty("Username is required")
+        .regex(/^[A-Za-z0-9_]+$/, 'Username may only contain letters, numbers, and underscores'),
+
     email: z.email('Invalid email address'),
+
     password: z.string().min(8, 'Password must be at least 8 characters long')
         .regex(/[A-ZÆØÅ]/, 'Password must contain at least one uppercase letter')
         .regex(/[a-zæøå]/, 'Password must contain at least one lowercase letter')

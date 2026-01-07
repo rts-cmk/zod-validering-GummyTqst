@@ -8,6 +8,7 @@ export default function RegistrationForm() {
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
+        username: "",
         email: "",
         password: "",
         confirmPassword: "",
@@ -67,6 +68,16 @@ export default function RegistrationForm() {
                     <input type="text" name="lastName" onChange={changeHandler} className="register-form__input" autoComplete="family-name" />
                     <ul className="register-form__error-list">
                         {errors.lastName?.errors.map(
+                            (message, index) => <li key={index}>{message}</li>
+                        )}
+                    </ul>
+                </label>
+
+                <label className="register-form__label">
+                    <span className="register-form__text">Username</span>
+                    <input type="text" name="username" onChange={changeHandler} className="register-form__input" autoComplete="family-name" />
+                    <ul className="register-form__error-list">
+                        {errors.username?.errors.map(
                             (message, index) => <li key={index}>{message}</li>
                         )}
                     </ul>
