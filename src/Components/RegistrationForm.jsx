@@ -14,6 +14,7 @@ export default function RegistrationForm() {
         confirmPassword: "",
         birthday: "",
         phone: "",
+        profileDescription: "",
     })
     const [errors, setErrors] = useState({})
 
@@ -128,6 +129,16 @@ export default function RegistrationForm() {
                     <input type="tel" name="phone" onChange={changeHandler} className="register-form__input" autoComplete="tel" />
                     <ul className="register-form__error-list">
                         {errors.phone?.errors.map(
+                            (message, index) => <li key={index}>{message}</li>
+                        )}
+                    </ul>
+                </label>
+
+                <label className="register-form__label">
+                    <span className="register-form__text">Profile Description</span>
+                    <textarea name="profileDescription" rows="5" onChange={changeHandler} className="register-form__textarea"></textarea>
+                    <ul className="register-form__error-list">
+                        {errors.profileDescription?.errors.map(
                             (message, index) => <li key={index}>{message}</li>
                         )}
                     </ul>

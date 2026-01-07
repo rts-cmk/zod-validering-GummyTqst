@@ -36,6 +36,8 @@ const registrationsSchema = z.object({
     phone: z.string().refine(value => !value || /^[0-9]{8}$/.test(value), {
         message: 'Phone number must be 8 digits',
     }),
+
+    profileDescription: z.string().max(200, 'Profile description must be at most 200 characters'),
 })
 .superRefine((data, ctx) => {
     if (data.password !== data.confirmPassword) {
