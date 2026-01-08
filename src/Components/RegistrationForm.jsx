@@ -46,6 +46,7 @@ export default function RegistrationForm() {
         if (result.success) {
             setErrors({})
             alert("Registration successful!")
+            console.log("Registered user data:", result.data)
         }
     }
 
@@ -125,7 +126,7 @@ export default function RegistrationForm() {
                 </label>
 
                 <label className="register-form__label">
-                    <span className="register-form__text">Phone Number</span>
+                    <span className="register-form__text">Phone Number (optional)</span>
                     <input type="tel" name="phone" onChange={changeHandler} className="register-form__input" autoComplete="tel" />
                     <ul className="register-form__error-list">
                         {errors.phone?.errors.map(
@@ -135,7 +136,7 @@ export default function RegistrationForm() {
                 </label>
 
                 <label className="register-form__label">
-                    <span className="register-form__text">Profile Description</span>
+                    <span className="register-form__text">Profile Description (optional)</span>
                     <textarea name="profileDescription" rows="5" onChange={changeHandler} className="register-form__textarea"></textarea>
                     <ul className="register-form__error-list">
                         {errors.profileDescription?.errors.map(
