@@ -17,9 +17,9 @@ const registrationsSchema = z.object({
         .regex(/[^A-Za-z0-9]/, 'Password must contain at least one special character'),
     confirmPassword: z.string().nonempty('Please confirm your password'),
 
-    birthday: z.coerce.date({
-        invalid_type_error: 'Birthday is required',
-    }).refine(date => {
+    birthday: z.coerce.date(
+        'Birthday is required',
+    ).refine(date => {
         const today = new Date();
         let age = today.getFullYear() - date.getFullYear();
         const month = today.getMonth() - date.getMonth();

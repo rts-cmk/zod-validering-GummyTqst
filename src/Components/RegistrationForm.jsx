@@ -2,7 +2,6 @@ import z from "zod"
 import { useState } from "react"
 import "../Components/RegistrationForm.sass"
 import registrationsSchema from "../schemas/registrationsSchema"
-import { set } from "zod/mini"
 
 export default function RegistrationForm() {
     const [formData, setFormData] = useState({
